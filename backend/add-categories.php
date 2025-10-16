@@ -167,11 +167,11 @@
                             </div>
                             <div class="white_card_body">
                                 <div class="card-body">
-                                    <form action="functions.php" method="POST">
+                                    <form action="actions/functions.php" method="POST">
                                         <div class="row mb-3">
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="inputEmail4">Category Name</label>
-                                                <input type="text" class="form-control" name="cat_name" id="inputEmail4"
+                                                <input type="text" class="form-control" name="cate_name" id="inputEmail4"
                                                     placeholder="Category Name">
                                             </div>
                                             <div class="col-md-6 mb-3">
