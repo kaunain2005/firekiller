@@ -4,12 +4,14 @@ $check = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Add Categories Page</title>
     <link rel="icon" href="img/logo.png" type="image/png">
-
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <?php include 'links.php'; ?>
 </head>
 
@@ -172,6 +174,16 @@ $check = mysqli_query($conn, $sql);
                                     <form action="actions/functions.php" method="POST">
                                         <div class="row mb-3">
                                             <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="inputEmail4">Product Name</label>
+                                                <input type="text" class="form-control" name="product_name" id="inputEmail4"
+                                                    placeholder="Product Name">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="inputEmail4">Image</label>
+                                                <input type="file" class="form-control" name="image" id="inputEmail4"
+                                                    placeholder="Image">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="inputEmail4">Parent Category Name</label>
                                                 <select id="inputState" class="form-control" name="parent_id">
                                                     <option selected value="">--select--</option>
@@ -181,9 +193,32 @@ $check = mysqli_query($conn, $sql);
                                                 </select>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="inputEmail4">Category Name</label>
-                                                <input type="text" class="form-control" name="cate_name" id="inputEmail4"
-                                                    placeholder="Category Name">
+                                                <label class="form-label" for="inputEmail4">Parent Category Name</label>
+                                                <select id="inputState" class="form-control" name="parent_id">
+                                                    <option selected value="">--select--</option>
+                                                    <?php foreach ($check as $row) { ?>
+                                                        <option value="<?php echo $row['cate_id']; ?>"><?php echo ucwords($row['cate_name']); ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label class="form-label" for="inputEmail4">Product Description</label>
+                                                <textarea name="pro_desc" id="pro_desc" class="form-control"></textarea>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="inputEmail4">Stock</label>
+                                                <input type="text" class="form-control" name="stock" id="inputEmail4"
+                                                    placeholder="Stock">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="inputEmail4">MRP</label>
+                                                <input type="text" class="form-control" name="mrp" id="inputEmail4"
+                                                    placeholder="MRP">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="inputEmail4">Selling Price</label>
+                                                <input type="text" class="form-control" name="selling_price" id="inputEmail4"
+                                                    placeholder="Selling Price">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="inputEmail4">Meta Title</label>
@@ -193,12 +228,12 @@ $check = mysqli_query($conn, $sql);
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="inputEmail4">Meta Keywords</label>
                                                 <input type="text" class="form-control" name="meta_key" id="inputEmail4"
-                                                    placeholder="Keywords">
+                                                    placeholder="Meta Keywords">
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="inputEmail4">Meta Description</label>
                                                 <input type="text" class="form-control" name="meta_desc" id="inputEmail4"
-                                                    placeholder="Description">
+                                                    placeholder="Meta Description">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label" for="inputState">Status</label>
@@ -209,7 +244,7 @@ $check = mysqli_query($conn, $sql);
                                                 </select>
                                             </div>
                                         </div>
-                                        <button type="submit" name="add-sub-categories" class="btn btn-primary">Add Category</button>
+                                        <button type="submit" name="add-product" class="btn btn-primary">Add Product</button>
                                     </form>
                                 </div>
                             </div>
@@ -222,3 +257,7 @@ $check = mysqli_query($conn, $sql);
         <!-- footer part start-->
         <?php include 'footer.php'; ?>
         <!-- footer part end-->
+
+        <script>
+            CKEDITOR.replace('pro_desc');
+        </script>

@@ -31,6 +31,17 @@
         <li class>
             <a class="has-arrow" href="#" aria-expanded="false">
                 <div class="icon_menu">
+                    <img src="img/menu-icon/8.svg" alt>
+                </div>
+                <span>Products</span>
+            </a>
+            <ul>
+                <li><a href="add-product.php">Add Product</a></li>
+            </ul>
+        </li>
+        <li class>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <div class="icon_menu">
                     <img src="img/menu-icon/2.svg" alt>
                 </div>
                 <span>Customers</span>
@@ -54,20 +65,6 @@
                 <li><a href="mail_box.html">Mail Box</a></li>
                 <li><a href="chat.html">Chat</a></li>
                 <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </li>
-        <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <div class="icon_menu">
-                    <img src="img/menu-icon/8.svg" alt>
-                </div>
-                <span>Products</span>
-            </a>
-            <ul>
-                <li><a href="Products.html">Products</a></li>
-                <li><a href="Product_Details.html">Product Details</a></li>
-                <li><a href="Cart.html">Cart</a></li>
-                <li><a href="Checkout.html">Checkout</a></li>
             </ul>
         </li>
         <li class>
