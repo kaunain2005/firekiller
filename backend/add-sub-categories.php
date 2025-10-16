@@ -1,8 +1,11 @@
+<?php include 'actions/lib/db-conn.php';
+$sql = "SELECT * FROM fk_categories ORDER BY id DESC";
+$check = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Add Categories Page</title>
@@ -170,6 +173,15 @@
                                     <form action="actions/functions.php" method="POST">
                                         <div class="row mb-3">
                                             <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="inputEmail4">Parent Category Name</label>
+                                                <select id="inputState" class="form-control" name="parent_id">
+                                                    <option selected value="">--select--</option>
+                                                    <?php foreach ($check as $row) { ?>
+                                                        <option value="<?php echo $row['cate_id']; ?>"><?php echo ucwords($row['cate_name']); ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="inputEmail4">Category Name</label>
                                                 <input type="text" class="form-control" name="cate_name" id="inputEmail4"
                                                     placeholder="Category Name">
@@ -198,7 +210,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <button type="submit" name="add-categories" class="btn btn-primary">Add Category</button>
+                                        <button type="submit" name="add-sub-categories" class="btn btn-primary">Add Category</button>
                                     </form>
                                 </div>
                             </div>

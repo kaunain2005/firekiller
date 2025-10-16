@@ -1,3 +1,4 @@
+<?php include 'actions/functions.php'; ?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -5,7 +6,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Add Categories Page</title>
+    <title>View Categories Page</title>
     <link rel="icon" href="img/logo.png" type="image/png">
 
     <?php include 'links.php'; ?>
@@ -154,55 +155,62 @@
         </div>
 
         <div class="main_content_iner ">
-            <div class="container-fluid p-0 sm_padding_15px">
+            <div class="container-fluid p-0">
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <div class="white_card card_height_100 mb_30">
                             <div class="white_card_header">
                                 <div class="box_header m-0">
                                     <div class="main-title">
-                                        <h3 class="m-0">Fill all categories details.</h3>
+                                        <h3 class="m-0">Data table</h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="white_card_body">
-                                <div class="card-body">
-                                    <form action="actions/functions.php" method="POST">
-                                        <div class="row mb-3">
-                                            <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="inputEmail4">Category Name</label>
-                                                <input type="text" class="form-control" name="cate_name" id="inputEmail4"
-                                                    placeholder="Category Name">
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="inputEmail4">Meta Title</label>
-                                                <input type="text" class="form-control" name="meta_title" id="inputEmail4"
-                                                    placeholder="Meta Title">
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="inputEmail4">Meta Keywords</label>
-                                                <input type="text" class="form-control" name="meta_key" id="inputEmail4"
-                                                    placeholder="Keywords">
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="inputEmail4">Meta Description</label>
-                                                <input type="text" class="form-control" name="meta_desc" id="inputEmail4"
-                                                    placeholder="Description">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label" for="inputState">Status</label>
-                                                <select id="inputState" class="form-control" name="status">
-                                                    <option selected>Choose...</option>
-                                                    <option value="1">Active</option>
-                                                    <option value="0">Inactive</option>
-                                                </select>
+                                <div class="QA_section">
+                                    <div class="white_box_tittle list_header">
+                                        <h4>Category Table</h4>
+                                        <div class="box_right d-flex lms_block">
+                                            <!-- <div class="serach_field_2">
+                                                <div class="search_inner">
+                                                    <form active="#">
+                                                        <div class="search_field">
+                                                            <input type="text" placeholder="Search content here...">
+                                                        </div>
+                                                        <button type="submit"> <i class="ti-search"></i> </button>
+                                                    </form>
+                                                </div>
+                                            </div> -->
+                                            <div class="add_button ms-2">
+                                                <a href="add-categories.php" data-bs-toggle="modal" data-bs-target="#addcategory"
+                                                    class="btn_1">Add New</a>
                                             </div>
                                         </div>
-                                        <button type="submit" name="add-categories" class="btn btn-primary">Add Category</button>
-                                    </form>
+                                    </div>
+                                    <div class="QA_table mb_30">
+
+                                        <table class="table lms_table_active ">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Cate Id</th>
+                                                    <th scope="col">Category</th>
+                                                    <th scope="col">Slug Url</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Added On</th>
+                                                    <th scope="col">Updated On</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php echo getCategories(); ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-12">
                     </div>
                 </div>
             </div>

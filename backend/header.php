@@ -24,6 +24,8 @@
             <ul>
                 <li><a href="add-categories.php">Add Categories</a></li>
                 <li><a href="view-categories.php">View Categories</a></li>
+                <li><a href="add-sub-categories.php">Add Sub Categories</a></li>
+                <li><a href="view-sub-categories.php">View Sub Categories</a></li>
             </ul>
         </li>
         <li class>
