@@ -53,6 +53,22 @@ function SlugUrl($string)
     return $slug;
 }
 
+if (isset($_POST['cate_id'])) {
+    $p_id = $_POST['cate_id'];
+    $sql = "SELECT * FROM fk_sub_categories WHERE parent_id='$p_id' ORDER BY id DESC";
+    $check = mysqli_query($conn, $sql);
+    while ($result = mysqli_fetch_assoc($check)) {
+        echo "<option value='" . $result['cate_id'] . "'>" . ucwords($result['cate_name']) . "</option>";
+    }
+}
+
+if (isset($_POST['logout'])) {
+    session_start();
+    session_unset();
+    session_destroy();
+    header('Location: ../index.php');
+}
+
 // Get Categories Function
 function getCategories()
 {

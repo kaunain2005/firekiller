@@ -11,7 +11,6 @@ $check = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Add Categories Page</title>
     <link rel="icon" href="img/logo.png" type="image/png">
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <?php include 'links.php'; ?>
 </head>
 
@@ -184,8 +183,8 @@ $check = mysqli_query($conn, $sql);
                                                     placeholder="Image">
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="inputEmail4">Parent Category Name</label>
-                                                <select id="inputState" class="form-control" name="parent_id">
+                                                <label class="form-label" for="inputEmail4">Parent Category</label>
+                                                <select id="inputState" class="form-control" name="parent_id" onchange="get_subcategories(this.value);">
                                                     <option selected value="">--select--</option>
                                                     <?php foreach ($check as $row) { ?>
                                                         <option value="<?php echo $row['cate_id']; ?>"><?php echo ucwords($row['cate_name']); ?></option>
@@ -193,12 +192,9 @@ $check = mysqli_query($conn, $sql);
                                                 </select>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="inputEmail4">Parent Category Name</label>
-                                                <select id="inputState" class="form-control" name="parent_id">
-                                                    <option selected value="">--select--</option>
-                                                    <?php foreach ($check as $row) { ?>
-                                                        <option value="<?php echo $row['cate_id']; ?>"><?php echo ucwords($row['cate_name']); ?></option>
-                                                    <?php } ?>
+                                                <label class="form-label" for="inputEmail4">Sub Category</label>
+                                                <select id="subcate_id" class="form-control" name="subcate_id">
+                                                    <option value="">--select--</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-12 mb-3">
@@ -258,6 +254,22 @@ $check = mysqli_query($conn, $sql);
         <?php include 'footer.php'; ?>
         <!-- footer part end-->
 
-        <script>
-            CKEDITOR.replace('pro_desc');
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript">
+            function get_subcategories(cate_id) {
+                var cate_id = cate_id;
+                $.ajax({
+                    url: 'actions/functions.php',
+                    method: 'post',
+                    data: {
+                        cate_id: cate_id
+                    },
+                    error: function() {
+                        alert("Something went wrong");
+                    },
+                    success: function(data) {
+                        $('#subcate_id').html(data);
+                    }
+                });
+            }
         </script>
